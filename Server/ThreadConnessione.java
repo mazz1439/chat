@@ -1,5 +1,6 @@
-package com.example;
+package com.example.Server;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,11 +12,11 @@ public class ThreadConnessione implements Runnable {
     private ListaClient listaClient;
     private String nomeClient;
 
-    public ThreadConnessione(Socket client, ListaClient listaClient, String nomeClient) throws IOException {
+    public ThreadConnessione(Socket client, ListaClient listaClient, JTextArea nomeClient) throws IOException {
         this.client = client;
         this.listaClient = listaClient;
         this.in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-        this.nomeClient = nomeClient;
+        this.nomeClient = String.valueOf(nomeClient);
     }
 
     @Override
@@ -35,7 +36,7 @@ public class ThreadConnessione implements Runnable {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Connessione interrotta con" + nomeClient);
+            System.out.println("Connessione interrotta con " + nomeClient);
         }
     }
 }

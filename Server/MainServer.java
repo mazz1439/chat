@@ -1,4 +1,4 @@
-package com.example;
+package com.example.Server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -25,7 +25,7 @@ public class MainServer {
                 Thread connessioneThread = new Thread(new ThreadConnessione(nuovoClient, listaClient, null));
                 listaThreadConnessioni.add(connessioneThread);
                 listaThreadConnessioni.get(listaThreadConnessioni.size()-1).start();
-                
+
             }
 
         } catch (IOException e) {
@@ -33,5 +33,5 @@ public class MainServer {
         }
 
     }
-    
+
 }
