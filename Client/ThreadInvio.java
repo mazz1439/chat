@@ -16,6 +16,6 @@ public class ThreadInvio implements Runnable {
 
     @Override
     public void run() {
-        // Non usato in GUI
+
     }
 }
