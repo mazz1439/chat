@@ -12,6 +12,7 @@ public class ListaClient {
         this.listaSockets = new ArrayList<Socket>();
     }
 
+
     public synchronized void addClient(Socket c) throws IOException {
         this.listaSockets.add(c);
     }
@@ -20,6 +21,7 @@ public class ListaClient {
         listaSockets.get(i).close();
         listaSockets.remove(i);
     }
+
 
     public synchronized void sendAll(String message, Socket client) throws IOException {
         for (Socket socket: listaSockets) {
